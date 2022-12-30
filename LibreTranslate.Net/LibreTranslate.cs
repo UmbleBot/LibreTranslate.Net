@@ -21,7 +21,7 @@ public class LibreTranslate
     /// </summary>
     public LibreTranslate()
     {
-        _httpClient = new HttpClient()
+        _httpClient = new HttpClient
         {
             BaseAddress = new Uri("https://libretranslate.com")
         };
@@ -33,7 +33,7 @@ public class LibreTranslate
     /// <param name="url"></param>
     public LibreTranslate(string url)
     {
-        _httpClient = new HttpClient()
+        _httpClient = new HttpClient
         {
             BaseAddress = new Uri(url)
         };
@@ -43,7 +43,7 @@ public class LibreTranslate
     /// Detect the language of a single text.
     /// </summary>
     /// <returns></returns>
-    public async Task<IEnumerable<DetectResponse>> DetectLanguageAsync(Detect detect,
+    public async Task<IEnumerable<DetectResponse>> DetectLanguagesAsync(Detect detect,
         CancellationToken? cancellationToken = null)
     {
         try

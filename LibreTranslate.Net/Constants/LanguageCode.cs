@@ -8,7 +8,7 @@ namespace LibreTranslate.Net.Constants;
 /// </summary>
 public class LanguageCode
 {
-    private static readonly Dictionary<string, LanguageCode?> Instance = new();
+    public static readonly Dictionary<string, LanguageCode> Instance = new();
     private readonly string _code;
 
     private LanguageCode(string code)
@@ -17,9 +17,9 @@ public class LanguageCode
         Instance[_code] = this;
     }
 
-    public static implicit operator LanguageCode(string str) => $"{FromString(str)}";
+    public static implicit operator LanguageCode(string str) => FromString(str);
 
-    public static LanguageCode? FromString(string str)
+    public static LanguageCode FromString(string str)
     {
         if (Instance.TryGetValue(str, out var result)) return result;
 
